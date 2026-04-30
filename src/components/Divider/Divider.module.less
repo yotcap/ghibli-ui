@@ -1,0 +1,47 @@
+// Divider Component
+@import '../../styles/_variables.less';
+
+.divider {
+  border: none;
+  position: relative;
+  background: transparent;
+}
+
+.divider--horizontal {
+  border-top: 2px solid @border-light;
+  width: 100%;
+  margin: 0;
+
+  &.divider--dashed { border-top-style: dashed; }
+}
+
+.divider--vertical {
+  border-left: 2px solid @border-light;
+  height: 100%;
+  align-self: stretch;
+
+  &.divider--dashed { border-left-style: dashed; }
+}
+
+// Spacing
+.divider--sm { margin: @space-sm 0; }
+.divider--md { margin: @space-md 0; }
+.divider--lg { margin: @space-lg 0; }
+
+.divider--vertical.divider--sm { margin: 0 @space-sm; }
+.divider--vertical.divider--md { margin: 0 @space-md; }
+.divider--vertical.divider--lg { margin: 0 @space-lg; }
+
+// With text
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: @bg-base;
+  padding: 0 @space-md;
+  font-size: @font-size-sm;
+  color: @text-muted;
+  font-weight: @font-weight-medium;
+  white-space: nowrap;
+}

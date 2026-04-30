@@ -1,0 +1,84 @@
+// Select Component
+@import '../../styles/_variables.less';
+
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.select {
+  font-family: @font-family;
+  font-size: @font-size-md;
+  color: @text-primary;
+  background: @bg-elevated;
+  border: 2px solid @border-light;
+  border-radius: @radius-md;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  padding-right: 36px;
+  width: 100%;
+  transition: border-color @transition-fast, box-shadow @transition-fast;
+
+  &:focus {
+    border-color: @color-primary;
+    box-shadow: 0 0 0 3px rgba(232, 196, 124, 0.2);
+  }
+
+  &:hover:not(:focus):not(:disabled) {
+    border-color: @border-medium;
+  }
+
+  option {
+    color: @text-primary;
+    background: @bg-card;
+  }
+}
+
+// Sizes
+.select--sm {
+  font-size: @font-size-sm;
+  padding: 6px 34px 6px 10px;
+  min-height: 32px;
+  border-radius: @radius-sm;
+}
+
+.select--md {
+  font-size: @font-size-md;
+  padding: 10px 34px 10px 14px;
+  min-height: 42px;
+}
+
+.select--lg {
+  font-size: @font-size-lg;
+  padding: 14px 40px 14px 18px;
+  min-height: 52px;
+  border-radius: @radius-lg;
+}
+
+// States
+.select--error {
+  border-color: @color-danger;
+}
+
+.select--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(247, 243, 232, 0.6);
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: @text-muted;
+  pointer-events: none;
+}
+
+.errorMsg {
+  font-size: @font-size-xs;
+  color: @color-danger;
+}

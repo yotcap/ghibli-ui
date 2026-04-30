@@ -1,0 +1,35 @@
+// Typography
+@import './_variables.less';
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @font-family;
+  font-weight: @font-weight-bold;
+  color: @text-primary;
+  line-height: 1.3;
+}
+
+h1 { font-size: 28px; }
+h2 { font-size: 24px; }
+h3 { font-size: 20px; }
+h4 { font-size: 18px; }
+h5 { font-size: 16px; }
+h6 { font-size: 14px; }
+
+p {
+  font-size: @font-size-md;
+  color: @text-secondary;
+  line-height: 1.7;
+}
+
+small {
+  font-size: @font-size-sm;
+  color: @text-muted;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: @font-size-sm;
+  background: rgba(232, 196, 124, 0.2);
+  padding: 2px 6px;
+  border-radius: @radius-sm;
+}

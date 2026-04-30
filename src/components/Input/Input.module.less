@@ -1,0 +1,92 @@
+// Input Component
+@import '../../styles/_variables.less';
+
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.input {
+  font-family: @font-family;
+  font-size: @font-size-md;
+  color: @text-primary;
+  background: @bg-elevated;
+  border: 2px solid @border-light;
+  border-radius: @radius-md;
+  outline: none;
+  transition: border-color @transition-fast, box-shadow @transition-fast;
+  width: 100%;
+
+  &::placeholder {
+    color: @text-muted;
+  }
+
+  &:focus {
+    border-color: @color-primary;
+    box-shadow: 0 0 0 3px rgba(232, 196, 124, 0.2);
+  }
+
+  &:hover:not(:focus):not(:disabled) {
+    border-color: @border-medium;
+  }
+}
+
+// Sizes
+.input--sm {
+  font-size: @font-size-sm;
+  padding: 6px 10px;
+  min-height: 32px;
+  border-radius: @radius-sm;
+}
+
+.input--md {
+  font-size: @font-size-md;
+  padding: 10px 14px;
+  min-height: 42px;
+}
+
+.input--lg {
+  font-size: @font-size-lg;
+  padding: 14px 18px;
+  min-height: 52px;
+  border-radius: @radius-lg;
+}
+
+// States
+.input--error {
+  border-color: @color-danger;
+  &:focus { border-color: @color-danger; box-shadow: 0 0 0 3px rgba(212, 112, 106, 0.2); }
+}
+
+.input--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(247, 243, 232, 0.6);
+}
+
+// Prefix / Suffix
+.input--has-prefix .input { padding-left: 38px; }
+.input--has-suffix .input { padding-right: 38px; }
+
+.prefix,
+.suffix {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  color: @text-muted;
+  pointer-events: none;
+  font-size: @font-size-md;
+}
+
+.prefix { left: 12px; }
+.suffix { right: 12px; }
+
+.errorMsg {
+  font-size: @font-size-xs;
+  color: @color-danger;
+  margin-top: 2px;
+}

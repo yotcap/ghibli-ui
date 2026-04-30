@@ -1,0 +1,86 @@
+// Tooltip Component
+@import '../../styles/_variables.less';
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: @z-tooltip;
+  background: @text-primary;
+  color: @text-inverse;
+  font-size: @font-size-sm;
+  font-family: @font-family;
+  font-weight: @font-weight-medium;
+  padding: 6px 12px;
+  border-radius: @radius-md;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: @shadow-md;
+  animation: tooltipIn 0.15s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    border: 5px solid transparent;
+  }
+}
+
+@keyframes tooltipIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+// Placement — TOP
+.tooltip--top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  &::after {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-color: @text-primary;
+  }
+}
+
+// Placement — BOTTOM
+.tooltip--bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  &::after {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-color: @text-primary;
+  }
+}
+
+// Placement — LEFT
+.tooltip--left {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  &::after {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left-color: @text-primary;
+  }
+}
+
+// Placement — RIGHT
+.tooltip--right {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+  &::after {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-right-color: @text-primary;
+  }
+}

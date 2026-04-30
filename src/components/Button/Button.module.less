@@ -1,0 +1,203 @@
+// Button Component — Ghibli Sticker Style
+@import '../../styles/_variables.less';
+
+// ─── Base ──────────────────────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: @font-family;
+  font-weight: @font-weight-bold;
+  border-radius: @radius-md;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    transform @transition-fast,
+    box-shadow @transition-fast,
+    background-color @transition-fast,
+    border-color @transition-fast;
+  position: relative;
+  white-space: nowrap;
+  user-select: none;
+  text-decoration: none;
+
+  // Nunito already adds nice rounded feel
+
+  &:active:not(:disabled) {
+    transform: translateY(2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(232, 196, 124, 0.5);
+    outline-offset: 2px;
+  }
+}
+
+// ─── Sizes ─────────────────────────────────────────────────────────────────────
+.btn--sm {
+  font-size: @font-size-sm;
+  padding: 6px 14px;
+  border-radius: @radius-sm;
+  min-height: 32px;
+
+  &.btn--primary,
+  &.btn--danger {
+    box-shadow: @shadow-sticker-sm;
+    &:active:not(:disabled) { box-shadow: none; transform: translateY(2px); }
+  }
+}
+
+.btn--md {
+  font-size: @font-size-md;
+  padding: 10px 20px;
+  border-radius: @radius-md;
+  min-height: 42px;
+
+  &.btn--primary,
+  &.btn--danger {
+    box-shadow: @shadow-sticker;
+    &:active:not(:disabled) { box-shadow: none; transform: translateY(3px); }
+  }
+}
+
+.btn--lg {
+  font-size: @font-size-lg;
+  padding: 14px 28px;
+  border-radius: @radius-lg;
+  min-height: 52px;
+
+  &.btn--primary,
+  &.btn--danger {
+    box-shadow: @shadow-sticker-lg;
+    &:active:not(:disabled) { box-shadow: none; transform: translateY(4px); }
+  }
+}
+
+// ─── Variants ─────────────────────────────────────────────────────────────────
+
+// Primary — warm yellow with sticker shadow
+.btn--primary {
+  background-color: @color-primary;
+  border-color: @color-primary-dark;
+  color: @text-primary;
+  box-shadow: @shadow-sticker;
+
+  &:hover:not(:disabled) {
+    background-color: @color-primary-light;
+    border-color: @color-primary;
+    transform: translateY(-1px);
+    box-shadow: @shadow-sticker-lg;
+  }
+
+  &:active:not(:disabled) {
+    background-color: @color-primary-dark;
+    box-shadow: none;
+    transform: translateY(3px);
+  }
+}
+
+// Secondary — mint green
+.btn--secondary {
+  background-color: @color-secondary;
+  border-color: @color-secondary-dark;
+  color: #3D5E3A;
+
+  &:hover:not(:disabled) {
+    background-color: @color-secondary-light;
+    border-color: @color-secondary;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    background-color: @color-secondary-dark;
+    transform: translateY(1px);
+  }
+}
+
+// Ghost — transparent with border
+.btn--ghost {
+  background-color: transparent;
+  border-color: @border-medium;
+  color: @text-primary;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(232, 196, 124, 0.15);
+    border-color: @color-primary;
+    color: @text-primary;
+  }
+
+  &:active:not(:disabled) {
+    background-color: rgba(232, 196, 124, 0.25);
+  }
+}
+
+// Link — no border, underlined text
+.btn--link {
+  background: none;
+  border: none;
+  color: @color-link;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  box-shadow: none;
+
+  &:hover:not(:disabled) {
+    color: @color-secondary-dark;
+    text-decoration-color: @color-secondary-dark;
+  }
+
+  &:active:not(:disabled) {
+    color: @color-secondary-dark;
+  }
+}
+
+// Danger — terracotta red
+.btn--danger {
+  background-color: @color-danger;
+  border-color: @color-danger-dark;
+  color: @text-inverse;
+  box-shadow: @shadow-sticker;
+
+  &:hover:not(:disabled) {
+    background-color: @color-danger-light;
+    border-color: @color-danger;
+    color: @text-primary;
+    transform: translateY(-1px);
+    box-shadow: @shadow-sticker-lg;
+  }
+
+  &:active:not(:disabled) {
+    background-color: @color-danger-dark;
+    box-shadow: none;
+    transform: translateY(3px);
+  }
+}
+
+// ─── Full Width ────────────────────────────────────────────────────────────────
+.btn--full {
+  width: 100%;
+}
+
+// ─── Loading ──────────────────────────────────────────────────────────────────
+.btn--loading {
+  cursor: wait;
+  .label { opacity: 0.7; }
+}
+
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}

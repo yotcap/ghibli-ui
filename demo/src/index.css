@@ -1,0 +1,36 @@
+/* Global styles for demo site */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #F7F3E8;
+  color: #5C4A32;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0EBE0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4C4A0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4A05A;
+}
+
+pre, code {
+  font-family: 'Courier New', Courier, monospace;
+}

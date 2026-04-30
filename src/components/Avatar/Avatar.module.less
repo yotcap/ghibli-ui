@@ -1,0 +1,60 @@
+// Avatar Component
+@import '../../styles/_variables.less';
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.avatar {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid @border-light;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.initials {
+  font-family: @font-family;
+  font-weight: @font-weight-bold;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+// Sizes
+.wrapper--sm { width: 32px; height: 32px; .initials { font-size: 12px; } }
+.wrapper--md { width: 40px; height: 40px; .initials { font-size: 14px; } }
+.wrapper--lg { width: 52px; height: 52px; .initials { font-size: 18px; } }
+.wrapper--xl { width: 72px; height: 72px; .initials { font-size: 24px; } }
+
+// Shapes
+.wrapper--circle .avatar { border-radius: 50%; }
+.wrapper--square .avatar { border-radius: @radius-md; }
+
+// Status indicator
+.status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  border: 2px solid @bg-base;
+
+  .wrapper--sm & { width: 9px; height: 9px; }
+  .wrapper--md & { width: 11px; height: 11px; }
+  .wrapper--lg & { width: 14px; height: 14px; }
+  .wrapper--xl & { width: 16px; height: 16px; }
+}
+
+.status--online { background: @color-secondary; }
+.status--offline { background: @border-medium; }
+.status--busy { background: @color-danger; }

@@ -1,0 +1,87 @@
+// Tag Component
+@import '../../styles/_variables.less';
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: @font-family;
+  font-weight: @font-weight-medium;
+  border-radius: @radius-full;
+  border: 1.5px solid transparent;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+// Sizes
+.tag--sm {
+  font-size: @font-size-xs;
+  padding: 3px 8px;
+}
+
+.tag--md {
+  font-size: @font-size-sm;
+  padding: 5px 12px;
+}
+
+.tag--lg {
+  font-size: @font-size-md;
+  padding: 7px 16px;
+}
+
+// Variants
+.tag--primary {
+  background: rgba(232, 196, 124, 0.2);
+  color: @text-primary;
+  border-color: @color-primary;
+}
+
+.tag--secondary {
+  background: rgba(168, 197, 160, 0.2);
+  color: #3D5E3A;
+  border-color: @color-secondary;
+}
+
+.tag--success {
+  background: rgba(168, 197, 160, 0.2);
+  color: #3D5E3A;
+  border-color: @color-secondary-dark;
+}
+
+.tag--warning {
+  background: rgba(245, 220, 160, 0.3);
+  color: #7A5A20;
+  border-color: #E8C47C;
+}
+
+.tag--danger {
+  background: rgba(212, 112, 106, 0.15);
+  color: #8B3A35;
+  border-color: @color-danger;
+}
+
+.tag--ghost {
+  background: transparent;
+  color: @text-muted;
+  border-color: @border-medium;
+}
+
+// Clickable
+.tag--clickable {
+  cursor: pointer;
+  transition: opacity @transition-fast, transform @transition-fast;
+  &:hover { opacity: 0.8; transform: translateY(-1px); }
+}
+
+// Close button
+.closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  opacity: 0.6;
+  transition: opacity @transition-fast;
+  border-radius: 50%;
+  padding: 2px;
+  &:hover { opacity: 1; background: rgba(0,0,0,0.06); }
+}

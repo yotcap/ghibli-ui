@@ -1,0 +1,83 @@
+// Badge Component
+@import '../../styles/_variables.less';
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: @font-family;
+  font-weight: @font-weight-bold;
+  border-radius: @radius-full;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+// Sizes
+.badge--sm {
+  font-size: 10px;
+  padding: 2px 7px;
+  min-width: 18px;
+  height: 18px;
+}
+
+.badge--md {
+  font-size: @font-size-xs;
+  padding: 3px 9px;
+  min-width: 22px;
+  height: 22px;
+}
+
+// Variants
+.badge--primary {
+  background: @color-primary;
+  color: @text-primary;
+  border: 1px solid @color-primary-dark;
+}
+
+.badge--secondary {
+  background: @color-secondary;
+  color: #3D5E3A;
+  border: 1px solid @color-secondary-dark;
+}
+
+.badge--success {
+  background: #C5DBC2;
+  color: #3D5E3A;
+  border: 1px solid @color-secondary-dark;
+}
+
+.badge--warning {
+  background: #F5DCA0;
+  color: #7A5A20;
+  border: 1px solid darken(#F5DCA0, 15%);
+}
+
+.badge--danger {
+  background: @color-danger;
+  color: @text-inverse;
+  border: 1px solid @color-danger-dark;
+}
+
+.badge--ghost {
+  background: transparent;
+  color: @text-muted;
+  border: 1px solid @border-medium;
+}
+
+// Dot variant
+.badge--dot {
+  padding: 0;
+  border-radius: 50%;
+  min-width: 8px;
+  width: 8px;
+  height: 8px;
+}
+
+// Count badge
+.badge--count {
+  padding: 0;
+  min-width: 22px;
+  height: 22px;
+  border-radius: @radius-full;
+  font-size: 11px;
+}

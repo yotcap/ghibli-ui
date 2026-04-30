@@ -1,0 +1,46 @@
+name: Build & Deploy Demo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # 手动触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies (demo)
+        run: |
+          cd demo
+          npm ci
+
+      - name: Build demo
+        run: |
+          cd demo
+          npm run build
+
+      - name: Deploy to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          source: "demo/dist/*"
+          target: ${{ secrets.DEPLOY_PATH }}
+          strip_components: 1
+          overwrite: true
+
+      - name: Verify deployment
+        run: |
+          echo "Deployed to https://ghibli.xiaomapingchuan.top"

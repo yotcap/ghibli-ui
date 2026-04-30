@@ -1,5 +1,7 @@
 # 🌿 Ghibli UI
 
+**[Live Demo →](https://ghibli.xiaomapingchuan.top)**
+
 A warm, storybook-style React component library inspired by Studio Ghibli's visual world — soft greens, warm yellows, and gentle rounded forms.
 
 ## ✨ Features

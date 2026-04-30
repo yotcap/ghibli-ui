@@ -24,7 +24,9 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./demo
-        run: npm install
+        run: |
+          npm ci --prefer-offline=false
+          npm install lucide-react --prefer-offline=false
 
       - name: Build demo
         working-directory: ./demo

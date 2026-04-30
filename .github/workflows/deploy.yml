@@ -3,11 +3,13 @@ name: Build & Deploy Demo
 on:
   push:
     branches: [main]
-  workflow_dispatch:   # 手动触发
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
     steps:
       - name: Checkout
@@ -16,18 +18,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
+          cache-dependency-path: demo/package-lock.json
 
-      - name: Install dependencies (demo)
-        run: |
-          cd demo
-          npm ci
+      - name: Install dependencies
+        working-directory: ./demo
+        run: npm ci
 
       - name: Build demo
-        run: |
-          cd demo
-          npm run build
+        working-directory: ./demo
+        run: npm run build
 
       - name: Deploy to server
         uses: appleboy/scp-action@v0.1.7
@@ -42,5 +43,4 @@ jobs:
           overwrite: true
 
       - name: Verify deployment
-        run: |
-          echo "Deployed to https://ghibli.xiaomapingchuan.top"
+        run: echo "Deployed to https://ghibli.xiaomapingchuan.top"

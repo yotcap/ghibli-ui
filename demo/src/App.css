@@ -97,6 +97,30 @@
 .sidebar__footer {
   padding: 16px 20px;
   border-top: 1px solid #E8DCC8;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar__github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #5C4A32;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(232, 196, 124, 0.2);
+  transition: background 0.15s, box-shadow 0.15s;
+  width: fit-content;
+}
+
+.sidebar__github-link:hover {
+  background: #E8C47C;
+  box-shadow: 0 3px 0 0 #C4A05A;
 }
 
 .sidebar__footer-text {

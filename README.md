@@ -26,6 +26,12 @@ A warm, storybook-style React component library inspired by Studio Ghibli's visu
 ## 📦 Install
 
 ```bash
+npm install ghibli-ui
+```
+
+Or for local development:
+
+```bash
 npm install
 cd demo && npm install
 ```

@@ -14,9 +14,34 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc -p tsconfig.build.json && vite build",
     "preview": "vite preview"
   },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yotcap/ghibli-ui"
+  },
+  "homepage": "https://github.com/yotcap/ghibli-ui#readme",
+  "bugs": {
+    "url": "https://github.com/yotcap/ghibli-ui/issues"
+  },
+  "author": "yotcap",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "ghibli",
+    "studio-ghibli",
+    "component-library",
+    "typescript",
+    "storybook-style"
+  ],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
